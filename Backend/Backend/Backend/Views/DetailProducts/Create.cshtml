@@ -1,0 +1,62 @@
+﻿@model Backend.Models.Data.DetailProduct
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+
+<h1 class="text-center">เพิ่มรายละเอียดสินค้า</h1>
+<hr />
+
+
+<div class="d-flex justify-content-center">
+    <div class="col-6">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           
+            <div class="form-group">
+                <label class="control-label">
+                    ไอดีสินค้า
+                </label>
+                <select asp-for="IdProduct" class="form-control" asp-items="ViewBag.IdProduct"></select>
+            </div>
+            <div class="form-group">
+               รูปภาพ
+                <input name="UpFile" multiple accept="image/*" type="file" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">
+                    น้ำหนัก
+                </label>
+                <input asp-for="Weight" class="form-control" />
+                <span asp-validation-for="Weight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">
+                    เพิ่มเติม
+                </label>
+                <input asp-for="DataMore" class="form-control" />
+                <span asp-validation-for="DataMore" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">
+                    ขนาด
+                </label>
+                <input asp-for="Size" class="form-control" />
+                <span asp-validation-for="Size" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="บันทึก" class="btn btn-primary" />
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+
+<div>
+    <a class="btn btn-secondary" asp-action="Index" asp-controller="Products">กลับ</a>
+</div>
+

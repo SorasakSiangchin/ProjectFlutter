@@ -1,0 +1,72 @@
+﻿@model Backend.Models.Data.Order
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+@*<h1>Edit</h1>
+
+<h4>Order</h4>
+<hr />*@
+<div class="d-flex justify-content-center">
+    <div class="col-6">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @Html.HiddenFor(model => model.ProofTransfer)
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label class="control-label">
+                    สถานะการชำระเงิน
+                </label>
+                <input asp-for="StatusMoney" class="form-control" />
+                <span asp-validation-for="StatusMoney" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">
+                    หลักฐานการชำระเงิน
+                </label>
+                <label asp-for="ProofTransfer" class="control-label"></label>
+                <input name="UpFile" accept="image/*" type="file" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="control-label">
+                    เวลาสั่งซื้อ
+                </label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">
+                    ราคารวม
+                </label>
+                <input asp-for="PriceTotal" class="form-control" />
+                <span asp-validation-for="PriceTotal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">
+                    สถานะผู้ใช้
+                </label>
+                <input asp-for="StatusForUser" class="form-control" />
+                <span asp-validation-for="StatusForUser" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">
+                    ที่อยู่
+                </label>
+                <select asp-for="IdAddress" class="form-control" asp-items="ViewBag.IdAddress"></select>
+                <span asp-validation-for="IdAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="บันทึก" class="btn btn-primary" />
+            </div>
+        </form>
+
+    </div>
+</div>
+
+            
+   
+    <div>
+        <a class="btn btn-secondary" asp-action="Index">กลับ</a>
+    </div>
+

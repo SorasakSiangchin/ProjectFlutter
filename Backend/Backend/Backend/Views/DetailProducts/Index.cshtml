@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Backend.Models.Data.DetailProduct>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center">รายละเอียดสินค้า</h1>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                รูปภาพ
+            </th>
+            <th>
+                น้ำหนัก
+            </th>
+            <th>
+                เพิ่มเติม
+            </th>
+            <th>
+                ขนาด
+            </th>
+            <th>
+                ไอดีสินค้า
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+    string url = "http://tee.kru.ac.th/cs63/s09/BigFlutter/Test/";
+        <tr>
+            <td>
+                @if (!String.IsNullOrEmpty(item.Image))
+                {
+
+                        <div class="m-auto">
+                            <img src=$"{@url}{@item.Image}" alt="รูปใบสั่ง" style="width:150px; height:150px;">
+                        </div>
+                
+
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataMore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Size)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdProductNavigation.Id)
+            </td>
+            <td>
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">แก้ไข</a> |
+                <a onclick="deleteConfirm('@item.Id')" class="btn btn-danger">
+                    ลบ
+                </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<script>
+    const deleteConfirm = (id) => {
+        swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this imaginary file!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    window.location.href = "@Url.Action("Delete")?id=" + id;
+                }
+            });
+    }
+</script>

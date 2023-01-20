@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Backend.Models.Data.Delivery>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center">การจัดส่ง</h1>
+
+<p>
+    <a class="btn btn-success text-white" asp-action="Create">เพิ่มการจัดส่ง</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+              เวลาที่ถึง
+            </th>
+            <th>
+                ใบสั่งที่
+            </th>
+            <th>
+                สถานะการจัดส่ง
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdOrderNavigation.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdStatusDeliveryNavigation.StatusName)
+            </td>
+            <td>
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">แก้ไข</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

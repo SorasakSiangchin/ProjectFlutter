@@ -1,0 +1,138 @@
+﻿@model IEnumerable<Backend.Models.Data.Order>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+@*<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<div class="p-5">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            string url = "http://tee.kru.ac.th/cs63/s09/BigFlutter/Test/";
+            <div class="col-4">
+                <div class="card" style="width: 18rem;">
+                    @if (!String.IsNullOrEmpty(item.ProofTransfer))
+                    {
+                        <div class="m-auto">
+                            <img src=$"{@url}{@item.ProofTransfer}" alt="รูปใบสั่ง" style="width:280px; height:200px;">
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="m-auto">
+                            <img src="~/images/admins/on-image.jpg" alt="รูปใบสั่ง" style="width:280px; height:200px;">
+                        </div>
+                    }
+
+                <div class="card-body">
+                    <h5 class="card-title">- ราคาที่ต้องจ่าย @item.PriceTotal บาท</h5>
+                    <p class="card-text">
+                        - รหัสผู้สั่งซื้อ @item.IdAddressNavigation.IdUser
+                    </p>
+                    <p class="card-text">
+                        - เวลาสั่งซื้อ @item.Date
+                    </p>
+                    <a asp-route-id="@item.Id" asp-action="Edit" class="btn btn-primary">
+                        แก้ไข
+                    </a>
+                </div>
+                </div>
+            </div>
+
+            @*<tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StatusMoney)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProofTransfer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PriceTotal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StatusForUser)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdAddressNavigation.Id)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>*@
+        }
+    </div>
+   
+</div>
+
+@*<div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div>*@
+@*<table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.StatusMoney)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProofTransfer)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PriceTotal)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StatusForUser)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IdAddressNavigation)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StatusMoney)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProofTransfer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PriceTotal)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StatusForUser)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdAddressNavigation.Id)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>*@

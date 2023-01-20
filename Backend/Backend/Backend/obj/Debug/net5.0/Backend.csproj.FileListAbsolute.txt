@@ -1,0 +1,8 @@
+D:\Flutter\Project\big_project_app\project\Backend\Backend\Backend\obj\Debug\net5.0\Backend.csproj.AssemblyReference.cache
+D:\Flutter\Project\big_project_app\project\Backend\Backend\Backend\obj\Debug\net5.0\Backend.GeneratedMSBuildEditorConfig.editorconfig
+D:\Flutter\Project\big_project_app\project\Backend\Backend\Backend\obj\Debug\net5.0\Backend.AssemblyInfoInputs.cache
+D:\Flutter\Project\big_project_app\project\Backend\Backend\Backend\obj\Debug\net5.0\Backend.AssemblyInfo.cs
+D:\Flutter\Project\big_project_app\project\Backend\Backend\Backend\obj\Debug\net5.0\Backend.csproj.CoreCompileInputs.cache
+D:\Flutter\Project\big_project_app\project\Backend\Backend\Backend\obj\Debug\net5.0\Backend.MvcApplicationPartsAssemblyInfo.cache
+D:\Flutter\Project\big_project_app\project\Backend\Backend\Backend\obj\Debug\net5.0\Backend.RazorAssemblyInfo.cache
+D:\Flutter\Project\big_project_app\project\Backend\Backend\Backend\obj\Debug\net5.0\Backend.RazorAssemblyInfo.cs
